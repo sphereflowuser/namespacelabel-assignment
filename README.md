@@ -1,7 +1,20 @@
 # namespacelabel
-
-
+When operating a large multi-tenant Kubernetes cluster, tenants are usually isolated by Namespaces and Role Base Access Control (RBAC). This approach limits the permissions tenant have on the Namespace object they use to deploy their applications. Some tenants would like to set specific labels on their Namespace; however, they cannot edit it. As operators, we came up with the idea of creating a Custom Resource Definition (CRD), which will allow tenants to edit their Namespace's labels.
 ## Description
+This operator should be reasonably straightforward. It should sync between the NamespaceLabel CRD and the Namespace Labels. Various ways could achieve this functionality. Please go ahead and get creative. However, even a simple working solution is good.
+
+An example of a NamespaceLabel CR:
+
+apiVersion: dana.io.dana.io/v1alpha1
+kind: NamespaceLabel
+metadata:
+    name: namespacelabel-sample
+    namespace: default
+spec:
+    labels:
+        label_1: a
+        label_2: b
+        label_3: c
 
 ## Getting Started
 
@@ -89,7 +102,6 @@ kubectl apply -f https://raw.githubusercontent.com/<org>/namespacelabel/<tag or 
 ```
 
 ## Contributing
-// TODO(user): Add detailed information on how you would like others to contribute to this project
 
 **NOTE:** Run `make help` for more information on all potential `make` targets
 
