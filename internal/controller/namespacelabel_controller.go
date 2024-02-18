@@ -95,7 +95,7 @@ func (r *NamespaceLabelReconciler) Reconcile(ctx context.Context, req ctrl.Reque
 	}
 
 	// Merge labels from the most recent NamespaceLabel CR, overriding older labels
-	// Skip adding labels that are protected
+	// Skip adding labels that are protected - from the list.
 	if len(namespaceLabelList.Items) > 0 {
 		latestCR := namespaceLabelList.Items[0]
 		for key, value := range latestCR.Spec.Labels {
