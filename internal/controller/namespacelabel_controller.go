@@ -28,6 +28,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/log"
 )
 
+
+// Create the NamespaceLabel Reconciler
 type NamespaceLabelReconciler struct {
 	client.Client
 	Scheme        *runtime.Scheme
